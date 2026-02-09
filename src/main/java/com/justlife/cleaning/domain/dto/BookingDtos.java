@@ -47,7 +47,6 @@ public class BookingDtos {
       Long vehicleId,
       String vehicleCode,
       Integer professionalCount,
-      List<AssignedCleaner> cleaners,
       Long regionId,
       String regionCode,
       Long serviceId,

@@ -35,7 +35,6 @@ public final class BookingResponseMapper {
         booking.getVehicle() != null ? booking.getVehicle().getId() : null,
         booking.getVehicle() != null ? booking.getVehicle().getCode() : null,
         booking.getProfessionalCount(),
-        List.of(),
         fixedRegionId,
         "1",
         fixedServiceId,

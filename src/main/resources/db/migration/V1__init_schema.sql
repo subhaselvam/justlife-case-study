@@ -106,6 +106,7 @@ CREATE TABLE IF NOT EXISTS booking_assignments (
     accepted_at TIMESTAMP,
     rejected_at TIMESTAMP,
     rejection_reason VARCHAR(255),
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT uq_booking_professional UNIQUE (booking_id, professional_id),
     CONSTRAINT chk_assignment_status CHECK (assignment_status IN ('ASSIGNED', 'ACCEPTED', 'REJECTED', 'COMPLETED'))
 );

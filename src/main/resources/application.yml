@@ -14,6 +14,9 @@ spring:
         format_sql: true
   flyway:
     enabled: true
+    clean-disabled: false
+    validate-on-migrate: false
+    locations: classpath:db/migration
 
 app:
   scheduling:

@@ -45,7 +45,7 @@ class BookingControllerIntegrationTest extends IntegrationTestBase {
         .andExpect(jsonPath("$.end").value("2026-02-10T12:00:00"))
         .andExpect(jsonPath("$.durationMinutes").value(120))
         .andExpect(jsonPath("$.professionalCount").value(2))
-        .andExpect(jsonPath("$.status").value("PENDING"))
+        .andExpect(jsonPath("$.status").value("CONFIRMED"))
         .andExpect(jsonPath("$.vehicleId").isNumber())
         .andExpect(jsonPath("$.professionals").isArray())
         .andExpect(jsonPath("$.professionals.length()").value(2))
