@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/justlife_db}
+    username: ${SPRING_DATASOURCE_USERNAME:justlife_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:justlife_pass}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+
+app:
+  scheduling:
+    workday-start: "08:00"
+    workday-end: "22:00"
+    break-minutes: 30
+    timezone: "Asia/Kolkata"
+    min-bookable-minutes: 120
+
+logging:
+  level:
+    org.flywaydb: INFO

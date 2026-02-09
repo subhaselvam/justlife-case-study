@@ -1,0 +1,34 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: justlife-postgres
+    environment:
+      POSTGRES_DB: justlife_db
+      POSTGRES_USER: justlife_user
+      POSTGRES_PASSWORD: justlife_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U justlife_user -d justlife_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    container_name: justlife-app
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: default
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/justlife_db
+      SPRING_DATASOURCE_USERNAME: justlife_user
+      SPRING_DATASOURCE_PASSWORD: 
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
